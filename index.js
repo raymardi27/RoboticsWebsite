@@ -152,60 +152,68 @@ app.post('/event/:id', urlencodedParser, function(req, res) {
             console.log(eventsList);
         }
         var particularEvent = event[eventID];
-        user.count({ name: req.body['name'], email: req.body['email'], college: req.body['college'], ticket: req.body['ticket'], eventID: req.params.id }, function(err, count) {
-            if (count > 0) {
-                res.render('confirmation', {
-                    reply: 'Hey !! your seats are secured , no need to worry we won\'t give it to anyone else , you are already registered :) ',
-                    event: particularEvent,
-                    color: 2
-                });
-            } else {
-                var u = user({ name: req.body['name'], email: req.body['email'], college: req.body['college'], ticket: req.body['ticket'], eventID: req.params.id, reason: req.body['reason'] }).save(function(err) {
-                    if (err) {
+        user.count({ eventID: req.params.id }, function(err, count) {
+            if (count < particularEvent[12]) {
+                user.count({ name: req.body['name'], email: req.body['email'], college: req.body['college'], ticket: req.body['ticket'], eventID: req.params.id }, function(err, count) {
+                    if (count > 0) {
                         res.render('confirmation', {
-                            reply: 'Oops!!! there was an error while registering :(',
+                            reply: 'Hey !! your seats are secured , no need to worry we won\'t give it to anyone else , you are already registered :) ',
                             event: particularEvent,
-                            color: 3
+                            color: 2
                         });
-                        throw err;
                     } else {
-                        console.log(1)
-                        console.log('ticket registered');
-                        var nodemailer = require('nodemailer');
-
-                        var transporter = nodemailer.createTransport({
-                            service: 'gmail',
-                            auth: {
-                                user: 'shettyyashdeep@gmail.com',
-                                pass: 'Yash@12345678910'
-                            }
-                        });
-                        var t = 'Thanks,' + req.body['name'] + ' you have been registered for the event of!!! ' + particularEvent[4] + " scheduled at " + particularEvent[1];
-                        var mailOptions = {
-                            from: 'shettyyashdeep@gmail.com',
-                            to: req.body['email'],
-                            subject: 'Event Confirmation',
-                            text: t
-                        };
-
-                        transporter.sendMail(mailOptions, function(error, info) {
-                            if (error) {
-                                console.log(error);
+                        var u = user({ name: req.body['name'], email: req.body['email'], college: req.body['college'], ticket: req.body['ticket'], eventID: req.params.id, reason: req.body['reason'] }).save(function(err) {
+                            if (err) {
+                                res.render('confirmation', {
+                                    reply: 'Oops!!! there was an error while registering :(',
+                                    event: particularEvent,
+                                    color: 3
+                                });
+                                throw err;
                             } else {
-                                console.log('Email sent: ' + info.response);
+                                console.log(1)
+                                console.log('ticket registered');
+                                var nodemailer = require('nodemailer');
+
+                                var transporter = nodemailer.createTransport({
+                                    service: 'gmail',
+                                    auth: {
+                                        user: 'shettyyashdeep@gmail.com',
+                                        pass: 'Yash@12345678910'
+                                    }
+                                });
+                                var t = 'Thanks,' + req.body['name'] + ' you have been registered for the event of!!! ' + particularEvent[4] + " scheduled at " + particularEvent[1];
+                                var mailOptions = {
+                                    from: 'shettyyashdeep@gmail.com',
+                                    to: req.body['email'],
+                                    subject: 'Event Confirmation',
+                                    text: t
+                                };
+
+                                transporter.sendMail(mailOptions, function(error, info) {
+                                    if (error) {
+                                        console.log(error);
+                                    } else {
+                                        console.log('Email sent: ' + info.response);
+                                    }
+                                });
+                                res.render('confirmation', {
+                                    reply: 'Your booking has been confirmed. Check your email for detials.',
+                                    event: particularEvent,
+                                    color: 1
+                                });
                             }
-                        });
-                        res.render('confirmation', {
-                            reply: 'Your booking has been confirmed. Check your email for detials.',
-                            event: particularEvent,
-                            color: 1
+
                         });
                     }
-
+                });
+            } else {
+                res.render('confirmation', {
+                    reply: 'Oops!!! seats have been filled already :(',
+                    event: particularEvent,
+                    color: 3
                 });
             }
         });
-
     });
-
 })
