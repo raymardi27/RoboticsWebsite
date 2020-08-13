@@ -153,7 +153,11 @@ app.get('/event/:id', function(req, res) {
                 console.log(eventsList);
             }
             var particularEvent = event[eventID];
-            user.count({ eventID: req.params.id }, function(err, count) {
+            user.findall({ eventID: req.params.id }, function(err, registered) {
+                count = 0;
+                for (var i = 0; i < registered.length; i++) {
+                    count = count + registered['ticket']
+                }
                 if (count < particularEvent[12]) {
                     user.count({ name: req.body['name'], email: req.body['email'], college: req.body['college'], ticket: req.body['ticket'], eventID: req.params.id }, function(err, count) {
                         if (count > 0) {
