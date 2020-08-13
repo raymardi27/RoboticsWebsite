@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="styles/project.css">
+    <link rel="stylesheet" type="text/css" href="styles/eachProject.css">
+    <title>Water Level Indicator</title>
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4 col-lg-4 col-sm-0 col-xs-0 col-xl-4"></div>
+            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12 col-xl-4 m-4"> <img src="images/club-logo.png" class="img-fluid shadow"></div>
+            <div class="col-md-4 col-lg-4 col-sm-0 col-xs-0 col-xl-4"></div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="jumbotron m-4 shadow">
+            <h1 class="display-4">Water Level Indicator</h1>
+            <hr class="my-4">
+            <p>--By Vinuthna Sri Darisa</p>
+            <a class="btn btn-primary btn-lg" href="https://github.com/Vinuthna3031" role="button">Learn more</a>
+        </div>
+    </div>
+
+    <div class="container-fluid project-name">
+        <div class="row">
+            <div class="col-lg-4 col-xl-4 col-sm-0 col-xs-0 col-md-4"></div>
+            <div class="col-lg-4 col-xl-4 col-sm-12 col-xs-12 col-md-4 m-4 p-4 shadow">
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="images/projects/water-level-indicator.jpg" class="d-block w-100 h-100 img-fluid" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <div class="jumbotron jumbotron-fluid h-100 w-100">
+                                <div class="container" class="display-data">
+                                    <h1 class="display-4">Introduction</h1>
+                                    <p class="lead">
+                                        This is a simple water level indicator. It basically indicates the level of water using LEDs. If the water level reaches the top and is about to overflow, it will indicate that with an LED as well as with the buzzer. It is just a small application of
+                                        using Arduino not going into the deeper sense.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="jumbotron jumbotron-fluid h-100 w-100">
+                                <div class="container">
+                                    <h1 class="display-4">List of Components</h1>
+                                    <p class="lead">
+                                        <ol>
+                                            <li>Arduino Uno</li>
+                                            <li>Buzzer</li>
+                                            <li>LED's</li>
+                                            <li>Container (non-conducting)</li>
+                                            <li>Wires</li>
+                                            <li>Jumper Wires</li>
+                                        </ol>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="jumbotron jumbotron-fluid h-100 w-100">
+                                <div class="container">
+                                    <h1 class="display-4">Technical Details</h1>
+                                    <p class="lead">Arduino pin 5 is used to take input and pin 8 is to give output to buzzer. The resistor connected to the blue LED is kept at the bottom level,the resistor connected to white LED is kept at the medium level and the resistor
+                                        connected to red LED is kept at the top level.The voltage is supplied from the 5V pin of the Arduino and the wire that connected is kept in the container.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="carousel-item">
+                            <div class="jumbotron jumbotron-fluid h-100 w-100">
+                                <div class="container">
+                                    <h1 class="display-4">Circuit Diagram</h1>
+                                    <p class="lead"><img src="images/projects/water-level-indicator_circuit.png" class="img-fluid"></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="carousel-item">
+                            <div class="jumbotron jumbotron-fluid h-100 w-100">
+                                <div class="container">
+                                    <h1 class="display-4">Performance Report</h1>
+                                    <p class="lead">
+                                        <h3>Features</h3>
+                                        <ol>
+                                            <li>If the blue LED glows, it means water is at the bottom level.</li>
+                                            <li>If white LED glows,it means water is at medium level.</li>
+                                            <li>If red LED glows,it means that the water is about to overflow</li>
+                                            <li>And the buzzer also gives sound indicating that.As we are using less voltage,there may not be much effect due to the electrolysis of water.</li>
+                                        </ol>
+                                        <h3>Cautions</h3>
+                                        <ol>
+                                            <li>Don’t give high voltage to the container.</li>
+                                        </ol>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-xl-4 col-sm-0 col-xs-0  col-md-4"></div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4 col-lg-4 col-sm-0 col-xs-0 col-xl-4"></div>
+            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12 col-xl-4 text-center">
+                <a href="/projectList"><button class="btn"><i class="material-icons p-4">keyboard_backspace</i></button></a>
+            </div>
+            <div class="col-md-4 col-lg-4 col-sm-0 col-xs-0 col-xl-4"></div>
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+        $('.carousel').carousel();
+    </script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+
+</html>

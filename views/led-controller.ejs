@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="styles/project.css">
+    <link rel="stylesheet" type="text/css" href="styles/eachProject.css">
+    <title>Led Controller</title>
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4 col-lg-4 col-sm-0 col-xs-0 col-xl-4"></div>
+            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12 col-xl-4 m-4"> <img src="images/club-logo.png" class="img-fluid shadow"></div>
+            <div class="col-md-4 col-lg-4 col-sm-0 col-xs-0 col-xl-4"></div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="jumbotron m-4 shadow">
+            <h1 class="display-4">Led Controller Using Voice</h1>
+            <hr class="my-4">
+            <p>--By Chandana P</p>
+            <a class="btn btn-primary btn-lg" href="https://github.com/P-Chandana" role="button">Learn more</a>
+        </div>
+    </div>
+
+    <div class="container-fluid project-name">
+        <div class="row">
+            <div class="col-lg-4 col-xl-4 col-sm-0 col-xs-0 col-md-4"></div>
+            <div class="col-lg-4 col-xl-4 col-sm-12 col-xs-12 col-md-4 m-4 p-4 shadow">
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="images/projects/led-controller.jpeg" class="d-block w-100 h-100 img-fluid" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <div class="jumbotron jumbotron-fluid h-100 w-100">
+                                <div class="container" class="display-data">
+                                    <h1 class="display-4">Introduction</h1>
+                                    <p class="lead">The main objective of the project is to develop a home automation system using an Arduino board with bluetooth being remotely controlled by any Android OS smartphone. As technology is advancing so houses are also getting
+                                        smarter. Modern houses are gradually shifting from conventional switches to centralized control systems, involving remote controlled switches. In order to achieve this, a Bluetooth module is interfaced to the Arduino
+                                        board at the receiver end while on the transmitter end, a GUI application on the cell phone sends ON/OFF commands to the receiver where loads are connected.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="jumbotron jumbotron-fluid h-100 w-100">
+                                <div class="container">
+                                    <h1 class="display-4">List of Components</h1>
+                                    <p class="lead">
+                                        <ol>
+                                            <li>Arduino Uno</li>
+                                            <li>HC-05 Bluetooth module</li>
+                                            <li>Arduino Bluetooth Controller App</li>
+                                            <li>Breadboard</li>
+                                            <li>Wires</li>
+                                            <li>LEDs</li>
+                                            <li>Resistors</li>
+                                        </ol>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="jumbotron jumbotron-fluid h-100 w-100">
+                                <div class="container">
+                                    <h1 class="display-4">Technical Details</h1>
+                                    <ul>
+                                        <li>HC-05 BLUETOOTH:
+                                            <p class="lead">Bluetooth can operate in the following two modes:
+                                                <ol>
+                                                    <li>Command mode: In command mode, we will be able to configure the bluetooth properties like the name of the bluetooth signal, it’s password, the operating baud rate etc:-</li>
+                                                    <li>Operating mode: The operating baud mode is the one in which we will be able to send and receive data between the PIC microcontroller and the bluetooth module. In this project we will be toying only with
+                                                        the operating mode.</li>
+                                                </ol>
+                                                The module works on 5V supply and the signal pins operate on 3V3, hence a 3.3V regulator is present in the module itself. Hence we need not worry about it. Out of the six pins, only four will be used in the operating mode. The pin connection table is
+                                                also attached on the left side.
+                                            </p>
+                                        </li>
+                                        <li>
+                                            FEATURES:
+                                            <p class="lead">
+                                                <ul>
+                                                    <li>HC-05 module is an easy to use bluetooth SPP (Serial Port Protocol) module, designed for transparent wireless serial connection setup.
+                                                    </li>
+                                                    <li>>Serial port (3Mbps modulation and 2.4 GB radio transceiver) bluetooth module is fully qualified bluetooth V2.0 + EDR (Enhanced Data Rate).</li>
+                                                    <li>The boards are based on the EGBT-045MS/EGBT-046S Bluetooth modules which are loaded with SPPfirmware for UART 5communication.The EGBT-045MS and EGBT-046S modules have the same hardware. The only difference
+                                                        is the firmware.</li>
+                                                </ul>
+                                            </p>
+                                        </li>
+                                        <li>
+                                            Specifications
+                                            <p class="lead">
+                                                <ul>
+                                                    <li>Radio Chip: CSR BC417</li>
+                                                    <li>Memory: External 8Mbit Flash</li>
+                                                    <li>Output Power: -4 to +6db</li>
+                                                    <li>Sensitivity: -80dbm</li>
+                                                    <li>Bit Rate: EDR, up to 3Mbps</li>
+                                                    <li>Interface: UART (with programmable baud rate)</li>
+                                                    <li>Antenna: Built-in (Has integrated antennas and edge connectors)</li>
+                                                    <li>Dimension: 27W x 13H mm</li>
+                                                    <li>Voltage: 3.1 to 4.2VDC • Current: 40mA max</li>
+                                                </ul>
+                                            </p>
+                                            <img src="projects/led_controller_hcic.png">
+                                        </li>
+
+                                        <li>
+                                            Connections:
+                                            <p class="lead"><img src="images/projects/led-controller_connection.png">
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="jumbotron jumbotron-fluid h-100 w-100">
+                                <div class="container">
+                                    <h1 class="display-4">Circuit Diagram</h1>
+                                    <p class="lead"><img src="images/projects/led-controller_circuit.png" class="img-fluid"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-xl-4 col-sm-0 col-xs-0  col-md-4"></div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4 col-lg-4 col-sm-0 col-xs-0 col-xl-4"></div>
+            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12 col-xl-4 text-center">
+                <a href="/projectList"><button class="btn"><i class="material-icons p-4">keyboard_backspace</i></button></a>
+            </div>
+            <div class="col-md-4 col-lg-4 col-sm-0 col-xs-0 col-xl-4"></div>
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+        $('.carousel').carousel();
+    </script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+
+</html>

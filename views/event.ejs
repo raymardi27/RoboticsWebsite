@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>EventUp - Event and Conference Template</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="/css/eventcss/bootstrap.min.css">
+    <!-- Icon -->
+    <link rel="stylesheet" type="text/css" href="/fonts/line-icons.css">
+    <!-- Nivo Lightbox -->
+    <link rel="stylesheet" type="text/css" href="/css/eventcss/nivo-lightbox.css">
+    <!-- Animate -->
+    <link rel="stylesheet" type="text/css" href="/css/eventcss/animate.css">
+    <!-- Main Style -->
+    <link rel="stylesheet" type="text/css" href="/css/eventcss/main.css">
+    <!-- Responsive Style -->
+    <link rel="stylesheet" type="text/css" href="/css/eventcss/responsive.css">
+
+    <style>
+        video {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+    <style>
+        body {
+            font-family: 'Varela Round', sans-serif;
+        }
+        
+        .modal-confirm {
+            color: #636363;
+            width: 325px;
+            margin: 30px auto;
+        }
+        
+        .modal-confirm .modal-content {
+            padding: 20px;
+            border-radius: 5px;
+            border: none;
+        }
+        
+        .modal-confirm .modal-header {
+            border-bottom: none;
+            position: relative;
+        }
+        
+        .modal-confirm h4 {
+            text-align: center;
+            font-size: 26px;
+            margin: 30px 0 -15px;
+        }
+        
+        .modal-confirm .form-control,
+        .modal-confirm .btn {
+            min-height: 40px;
+            border-radius: 3px;
+        }
+        
+        .modal-confirm .close {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+        }
+        
+        .modal-confirm .modal-footer {
+            border: none;
+            text-align: center;
+            border-radius: 5px;
+            font-size: 13px;
+        }
+        
+        .modal-confirm .icon-box {
+            color: #fff;
+            position: absolute;
+            margin: 0 auto;
+            left: 0;
+            right: 0;
+            top: -70px;
+            width: 95px;
+            height: 95px;
+            border-radius: 50%;
+            z-index: 9;
+            background: #82ce34;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        .modal-confirm .icon-box i {
+            font-size: 58px;
+            position: relative;
+            top: 3px;
+        }
+        
+        .modal-confirm.modal-dialog {
+            margin-top: 80px;
+        }
+        
+        .modal-confirm .btn {
+            color: #fff;
+            border-radius: 4px;
+            background: #82ce34;
+            text-decoration: none;
+            transition: all 0.4s;
+            line-height: normal;
+            border: none;
+        }
+        
+        .modal-confirm .btn:hover,
+        .modal-confirm .btn:focus {
+            background: #6fb32b;
+            outline: none;
+        }
+        
+        .trigger-btn {
+            display: inline-block;
+            margin: 100px auto;
+        }
+    </style>
+</head>
+<% if(typeof(event) === 'undefined') { %>
+    <% }else{ %>
+
+        <body>
+
+
+            <!-- Header Area wrapper Starts -->
+            <header id="header-wrap">
+
+                <!-- Hero Area Start -->
+                <div id="hero-area" class="hero-area-bg">
+                    <div class="overlay"></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-9 col-sm-12">
+                                <div class="contents text-center">
+                                    <div class="icon">
+                                        <i class="lni-mic"></i>
+                                    </div>
+                                    <p class="banner-info">
+                                        <%= event[1] %> -
+                                            <%= event[2] %> ,
+                                                <%= event[3] %>
+
+                                    </p>
+                                    <h2 class="head-title">
+                                        <%= event[4] %>
+
+                                    </h2>
+                                    <p class="banner-desc">
+                                        <%= event[5] %>
+                                    </p>
+                                    <div class="banner-btn">
+                                        <a href="#contact-map" class="btn btn-common">Get Ticket</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Hero Area End -->
+
+            </header>
+            <!-- Header Area wrapper End -->
+
+            <!-- Count Bar Start -->
+            <section id="count">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-10">
+                            <div class="count-wrapper text-center">
+                                <div class="time-countdown wow fadeInUp" data-wow-delay="0.2s">
+                                    <div class="row clock_sec d-flex flex-row justify-content-between" id="clockdiv">
+                                        <div class="clockinner">
+                                            <span class="days"></span>
+                                            <div class="smalltext">Days</div>
+                                        </div>
+                                        <div class="clockinner">
+                                            <span class="hours"></span>
+                                            <div class="smalltext">Hours</div>
+                                        </div>
+                                        <div class="clockinner">
+                                            <span class="minutes"></span>
+                                            <div class="smalltext">Minutes</div>
+                                        </div>
+                                        <div class="clockinner">
+                                            <span class="seconds"></span>
+                                            <div class="smalltext">Seconds</div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Count Bar End -->
+
+            <!-- About Section Start -->
+            <section id="about" class="section-padding">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-12 col-xs-12">
+                            <div class="img-thumb">
+                                <img class="img-fluid gsap-reveal-img" src="/images/roboconMain.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-xs-12">
+                            <div class="about-content">
+                                <div>
+                                    <div class="about-text">
+                                        <h2>About The Event</h2>
+                                        <p>
+                                            <%= event[6] %>
+                                        </p>
+                                    </div>
+                                    <ul class="stylish-list mb-3">
+                                        <li><i class="lni-check-mark-circle"></i>
+                                            <%= event[7] %>
+                                        </li>
+                                        <li><i class="lni-check-mark-circle"></i>
+                                            <%= event[8] %>
+                                        </li>
+                                        <li><i class="lni-check-mark-circle"></i>
+                                            <%= event[9] %>
+                                        </li>
+                                    </ul>
+                                    <a class="btn btn-common" href="#">Learn More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- About Section End -->
+
+            <!-- Video Section Start -->
+            <div class="ready-to-play">
+                <video id="bgvid" class="stop gsap-reveal-img" loop>
+            <source src="/videos/promo.mp4" type="video/mp4">
+        </video>
+                <div id="polina" class="video-text">
+                    <div class="tb-t">
+                        <div class="tb-c">
+                            <div class="polina"><button><i class='lni-play'></i></button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Video Section End -->
+
+            <!-- Information Bar Start -->
+            <section id="information-bar">
+                <div class="container">
+                    <div class="row inforation-wrapper">
+                        <div class="col-lg-4 col-md-4 col-xs-12">
+                            <ul>
+                                <li>
+                                    <i class="lni-map-marker"></i>
+                                </li>
+                                <li><span><b>Location</b> <%= event[3] %>
+                            </span></li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-xs-12">
+                            <ul>
+                                <li>
+                                    <i class="lni-calendar"></i>
+                                </li>
+                                <li><span><b>Date & Time</b> <%= event[2] %>
+                                , <%= event[3] %>
+                            </span></li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-xs-12">
+                            <ul>
+                                <li>
+                                    <i class="lni-user"></i>
+                                </li>
+                                <li><span><b>Seats</b> 100 People</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Information Bar End -->
+
+
+
+
+
+
+
+
+
+            <!-- Contact Us Section -->
+            <section id="contact-map" class="section-padding">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="section-title-header text-center">
+                                <h2 class="section-title wow fadeInUp" data-wow-delay="0.2s">Get Event Tickets</h2>
+                                <p class="wow fadeInDown" data-wow-delay="0.2s">* Please do fill the necessary information required for your registration and further communication purposes.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8 col-md-12 col-xs-12">
+                            <div class="container-form wow fadeInLeft" data-wow-delay="0.2s">
+                                <div class="form-wrapper">
+                                    <% var t = "/event/"+event[0]  %>
+                                        <form method="post" action="<%= t %>">
+                                            <div class="form-group row">
+                                                <label for="name" class="col-sm-2 col-form-label">Name</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" class="form-control" id="name" name="name" placeholder="Full Name">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="email" class="col-sm-2 col-form-label">Email</label>
+                                                <div class="col-sm-10">
+                                                    <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="college" class="col-sm-2 col-form-label">College</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" class="form-control" id="college" name="college" placeholder="Name of your College">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="ticket">Select No. of Tickets</label>
+                                                <select class="form-control" id="ticket" name="ticket">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                    </select>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="reason" class="col-sm-2 col-form-label">Reason</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" class="form-control" id="reason" name="reason" placeholder="Would like to know reason for you joining this event :)">
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                            <div id="msg">
+                                                <% if(typeof(reply) === 'undefined') { %>
+                                                    <% } else{%>
+                                                        <%= reply %>
+                                                            <% } %>
+                                            </div>
+                                        </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Contact Us Section End -->
+            <!-- Button HTML (to Trigger Modal) -->
+
+            </div>
+            <!-- Modal HTML -->
+            <div id="myModal" class="modal fade">
+                <div class="modal-dialog modal-confirm">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <div class="icon-box">
+                                <i class="material-icons">&#xE876;</i>
+                            </div>
+                            <h4 class="modal-title">Awesome!</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p class="text-center">Your booking has been confirmed. Check your email for detials.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-success btn-block" data-dismiss="modal">OK</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <footer>
+                <div class="container ">
+                    <div class="row justify-content-center ">
+                        <div class="col-lg-8 col-md-12 col-xs-12 ">
+
+                            <div class="footer-logo ">
+                                <img src="/images/club-logo.png " class="h-25 w-25 m-4" alt=" ">
+                                <img src="/images/logo.png " class="h-25 w-25 m-4" alt=" ">
+                            </div>
+
+                            <div class="social-icons-footer ">
+                                <ul>
+                                    <li class="facebook "><a target="_blank " href="3 "><i class="lni-facebook-filled "></i></a>
+                                    </li>
+                                    <li class="twitter "><a target="_blank " href="3 "><i class="lni-twitter-filled "></i></a>
+                                    </li>
+                                    <li class="pinterest "><a target="_blank " href="3 "><i class="lni-pinterest "></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="site-info ">
+                                <p>Designed and Developed by <a href=" " rel="nofollow ">IRIS</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <% } %>
+                <!-- Go to Top Link -->
+                <a href="# " class="back-to-top ">
+                    <i class="lni-chevron-up "></i>
+                </a>
+
+
+                <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+                <script src="/js/eventjs/jquery-min.js "></script>
+                <script src="/js/eventjs/popper.min.js "></script>
+                <script src="/js/eventjs/bootstrap.min.js "></script>
+                <script src="/js/eventjs/jquery.countdown.min.js "></script>
+                <script src="/js/eventjs/waypoints.min.js "></script>
+                <script src="/js/eventjs/jquery.counterup.min.js "></script>
+                <script src="/js/eventjs/jquery.nav.js "></script>
+                <script src="/js/eventjs/jquery.easing.min.js "></script>
+                <script src="/js/eventjs/wow.js "></script>
+                <script src="/js/eventjs/nivo-lightbox.js "></script>
+                <script src="/js/eventjs/video.js "></script>
+                <script src="/js/eventjs/main.js "></script>
+                <script src="/js/eventjs/countdown.js "></script>
+                <script>
+                    function getTimeRemaining(endtime) {
+                        var t = Date.parse(endtime) - Date.parse(new Date());
+                        var seconds = Math.floor((t / 1000) % 60);
+                        var minutes = Math.floor((t / 1000 / 60) % 60);
+                        var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+                        var days = Math.floor(t / (1000 * 60 * 60 * 24));
+                        return {
+                            'total': t,
+                            'days': days,
+                            'hours': hours,
+                            'minutes': minutes,
+                            'seconds': seconds
+                        };
+                    }
+
+                    function initializeClock(id, endtime) {
+                        var clock = document.getElementById(id);
+                        var daysSpan = clock.querySelector('.days');
+                        var hoursSpan = clock.querySelector('.hours');
+                        var minutesSpan = clock.querySelector('.minutes');
+                        var secondsSpan = clock.querySelector('.seconds');
+
+                        function updateClock() {
+                            var t = getTimeRemaining(endtime);
+
+                            daysSpan.innerHTML = t.days;
+                            hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+                            minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+                            secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+
+                            if (t.total <= 0) {
+                                clearInterval(timeinterval);
+                            }
+                        }
+
+                        updateClock();
+                        var timeinterval = setInterval(updateClock, 1000);
+                    }
+
+                    var deadline = new Date(Date.parse(new Date()) + 30 * 24 * 60 * 60 * 1000);
+                    initializeClock('clockdiv', deadline);
+                </script>
+
+        </body>
+
+</html>
+
+</html>
