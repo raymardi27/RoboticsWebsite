@@ -9,8 +9,7 @@ var mongoose = require('mongoose');
 mongoose.connect("mongodb+srv://test:test@cluster0.zgwho.mongodb.net/users?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true });
 
 
-app.use(express.static(path.join(__dirname, 'assets')));
-app.set('views', path.join(__dirname, 'views'))
+app.use(express.static('assets'));
 app.set('view engine', 'ejs');
 const PORT = process.env.PORT || 5000
 app.listen(PORT)
