@@ -154,9 +154,10 @@ app.post('/event/:id', urlencodedParser, function(req, res) {
         var particularEvent = event[eventID];
         user.count({ name: req.body['name'], email: req.body['email'], college: req.body['college'], ticket: req.body['ticket'], eventID: req.params.id }, function(err, count) {
             if (count > 0) {
-                res.render('event', {
+                res.render('confirmation', {
                     reply: 'Hey !! your seats are secured , no need to worry we won\'t give it to anyone else , you are already registered :) ',
-                    event: particularEvent
+                    event: particularEvent,
+                    color: 2
                 });
             } else {
                 var u = user({ name: req.body['name'], email: req.body['email'], college: req.body['college'], ticket: req.body['ticket'], eventID: req.params.id, reason: req.body['reason'] }).save(function(err) {
@@ -164,7 +165,7 @@ app.post('/event/:id', urlencodedParser, function(req, res) {
                         res.render('confirmation', {
                             reply: 'Oops!!! there was an error while registering :(',
                             event: particularEvent,
-                            color: 2
+                            color: 3
                         });
                         throw err;
                     } else {
