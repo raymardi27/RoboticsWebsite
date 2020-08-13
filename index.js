@@ -85,9 +85,7 @@ app.get('/projectList', function(req, res) {
 });
 
 
-app.get('/projectList', function(req, res) {
-    res.render('projectList')
-})
+
 
 app.get('/autonomous_dustbin', function(req, res) {
     res.render('autonomous_dustbin')
