@@ -153,7 +153,7 @@ app.get('/event/:id', function(req, res) {
                 console.log(eventsList);
             }
             var particularEvent = event[eventID];
-            user.find({ eventID: req.params.id }, function(err, registered) {
+            user.find({ eventID: req.params.id }).toArray(function(err, registered) {
                 count = 0;
                 for (var i = 0; i < registered.length; i++) {
                     count = count + registered['ticket']
@@ -220,6 +220,7 @@ app.get('/event/:id', function(req, res) {
                     });
                 }
             });
+
         });
     });
 })
