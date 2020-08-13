@@ -158,7 +158,7 @@ app.get('/event/:id', function(req, res) {
                 for (var i = 0; i < registered.length; i++) {
                     count = count + registered['ticket']
                 }
-                if (count < particularEvent[12]) {
+                if (count < particularEvent[15]) {
                     user.count({ name: req.body['name'], email: req.body['email'], college: req.body['college'], ticket: req.body['ticket'], eventID: req.params.id }, function(err, count) {
                         if (count > 0) {
                             res.render('confirmation', {
