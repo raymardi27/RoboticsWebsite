@@ -161,7 +161,7 @@ app.post('/event/:id', urlencodedParser, function(req, res) {
             } else {
                 var u = user({ name: req.body['name'], email: req.body['email'], college: req.body['college'], ticket: req.body['ticket'], eventID: req.params.id, reason: req.body['reason'] }).save(function(err) {
                     if (err) {
-                        res.render('event', {
+                        res.render('confirmation', {
                             reply: 'Oops!!! there was an error while registering :(',
                             event: particularEvent
                         });
@@ -193,8 +193,8 @@ app.post('/event/:id', urlencodedParser, function(req, res) {
                                 console.log('Email sent: ' + info.response);
                             }
                         });
-                        res.render('event', {
-                            reply: 'Thanks for registering!!Waiting to see you in the event!! :)',
+                        res.render('confirmation', {
+                            reply: 'Your booking has been confirmed. Check your email for detials.',
                             event: particularEvent
                         });
                     }

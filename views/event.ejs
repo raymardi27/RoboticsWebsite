@@ -20,6 +20,7 @@
     <link rel="stylesheet" type="text/css" href="/css/eventcss/main.css">
     <!-- Responsive Style -->
     <link rel="stylesheet" type="text/css" href="/css/eventcss/responsive.css">
+    <link rel="stylesheet" type="text/css" href="/css/eventcss/confirmation.css">
 
     <style>
         video {
@@ -349,12 +350,6 @@
                                                 </div>
                                             </div>
                                             <button type="submit" class="btn btn-primary">Submit</button>
-                                            <div id="msg">
-                                                <% if(typeof(reply) === 'undefined') { %>
-                                                    <% } else{%>
-                                                        <%= reply %>
-                                                            <% } %>
-                                            </div>
                                         </form>
                                 </div>
                             </div>
@@ -433,6 +428,7 @@
                 <script src="/js/eventjs/video.js "></script>
                 <script src="/js/eventjs/main.js "></script>
                 <script src="/js/eventjs/countdown.js "></script>
+
                 <script>
                     function getTimeRemaining(endtime) {
                         var t = Date.parse(endtime) - Date.parse(new Date());
