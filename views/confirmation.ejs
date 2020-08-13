@@ -110,34 +110,40 @@
 </head>
 
 <body>
+    <% if (color==1){ %>
+        <% var color = "background:#6fb32b" %>
+            <% }else if(color==2){ %>
+                <% var color = "background:#FFCC00" %>
+                    <% }else{ %>
+                        <% var color = "background:#ca0b00 %>
+                            <% } %>
 
-
-    <!-- Modal HTML -->
-    <div id="myModal" class="modal fade">
-        <div class="modal-dialog modal-confirm">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <div class="icon-box">
-                        <i class="material-icons">&#xE876;</i>
-                    </div>
-                    <h4 class="modal-title">Awesome!</h4>
-                </div>
-                <div class="modal-body">
-                    <p class="text-center">
-                        <%= reply %>
-                    </p>
-                </div>
-                <div class="modal-footer">
-                    <a href="/"><button class="btn btn-success btn-block" >OK</button></a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script>
-        $(document).ready(function() {
-            $("#myModal").modal('show');
-        });
-    </script>
+                                <!-- Modal HTML -->
+                                <div id="myModal" class="modal fade">
+                                    <div class="modal-dialog modal-confirm">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <div class="icon-box" style="<%= color %>">
+                                                    <i class=" material-icons ">&#xE876;</i>
+                                                </div>
+                                                <h4 class="modal-title ">Awesome!</h4>
+                                            </div>
+                                            <div class="modal-body ">
+                                                <p class="text-center ">
+                                                    <%= reply %>
+                                                </p>
+                                            </div>
+                                            <div class="modal-footer ">
+                                                <a href="/ "><button class="btn btn-success btn-block " >OK</button></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <script>
+                                    $(document).ready(function() {
+                                        $("#myModal ").modal('show');
+                                    });
+                                </script>
 
 </body>
 

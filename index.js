@@ -163,7 +163,8 @@ app.post('/event/:id', urlencodedParser, function(req, res) {
                     if (err) {
                         res.render('confirmation', {
                             reply: 'Oops!!! there was an error while registering :(',
-                            event: particularEvent
+                            event: particularEvent,
+                            color: 2
                         });
                         throw err;
                     } else {
@@ -195,7 +196,8 @@ app.post('/event/:id', urlencodedParser, function(req, res) {
                         });
                         res.render('confirmation', {
                             reply: 'Your booking has been confirmed. Check your email for detials.',
-                            event: particularEvent
+                            event: particularEvent,
+                            color: 1
                         });
                     }
 
