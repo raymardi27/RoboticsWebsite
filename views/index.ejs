@@ -31,9 +31,9 @@
 
 </head>
 
-<body data-spy="scroll" data-target=".site-nav-target" data-offset="200">
+<body data-spy="scroll" data-target=".site-nav-target" data-offset="200" class="first_div">
 
-    <nav class="unslate_co--site-mobile-menu container">
+    <nav class="unslate_co--site-mobile-menu container second_div">
         <div class="close-wrap d-flex">
             <a href="#" class="d-flex ml-auto js-menu-toggle">
                 <span class="close-label">Close</span>
@@ -57,7 +57,7 @@
             </div>
             <!-- END lines -->
 
-            <nav class="unslate_co--site-nav site-nav-target">
+            <nav class="unslate_co--site-nav site-nav-target second_div">
 
                 <div class="container">
 
@@ -403,6 +403,11 @@
         var vid = document.getElementById("myVideo");
         vid.autoplay = true;
         vid.load();
+        $(document).ready(function() {
+            $(".second_div").css({
+                'width': ($(".first_div").width() + 'px')
+            });
+        });
     </script>
 
 </body>
