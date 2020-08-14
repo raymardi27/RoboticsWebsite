@@ -124,7 +124,25 @@
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <div class="icon-box" style="<%= t %>">
-                                                    <i class=" material-icons ">&#xE876;</i>
+                                                    <% if (color==1) { %>
+                                                        <span class="material-icons">
+                                                            done
+                                                            </span>
+                                                        <% } %>
+                                                            <% if (color==2) { %>
+                                                                <span class="material-icons">
+                                                                    sentiment_satisfied_alt
+                                                                    </span>
+
+
+                                                                <% } %>
+                                                                    <% if (color==3) { %>
+                                                                        <span class="material-icons">
+                                                                            error
+                                                                            </span>
+
+
+                                                                        <% } %>
                                                 </div>
                                                 <% if (color==1) { %>
                                                     <h4 class="modal-title ">Awesome!</h4>
