@@ -173,23 +173,24 @@ app.post('/event/:id', urlencodedParser, function(req, res) {
                     color: 2
                 });
             } else {
-                var u = user({ name: req.body['name'], email: req.body['email'], college: req.body['college'], ticket: req.body['ticket'], eventID: req.params.id, reason: req.body['reason'] }).save(function(err) {
-                    if (err) {
-                        res.render('confirmation', {
-                            reply: 'Oops!!! there was an error while registering :(',
-                            event: particularEvent,
-                            color: 3
-                        });
-                        throw err;
-                    } else {
-                        user.find({ eventID: req.params.id }, function(err, registered) {
-                            var count = 0;
-                            console.log(registered);
-                            for (var i = 0; i < registered.length; i++) {
-                                count = count + registered[i]['ticket']
-                            }
-                            console.log(count)
-                            if (count < particularEvent[15]) {
+
+                user.find({ eventID: req.params.id }, function(err, registered) {
+                    var count = 0;
+                    console.log(registered);
+                    for (var i = 0; i < registered.length; i++) {
+                        count = count + registered[i]['ticket']
+                    }
+                    console.log(count);
+                    if (count < particularEvent[15]) {
+                        var u = user({ name: req.body['name'], email: req.body['email'], college: req.body['college'], ticket: req.body['ticket'], eventID: req.params.id, reason: req.body['reason'] }).save(function(err) {
+                            if (err) {
+                                res.render('confirmation', {
+                                    reply: 'Oops!!! there was an error while registering :(',
+                                    event: particularEvent,
+                                    color: 3
+                                });
+                                throw err;
+                            } else {
                                 console.log('ticket registered');
                                 var nodemailer = require('nodemailer');
 
@@ -220,19 +221,18 @@ app.post('/event/:id', urlencodedParser, function(req, res) {
                                     event: particularEvent,
                                     color: 1
                                 });
-                            } else {
-                                res.render('confirmation', {
-                                    reply: 'Oops!!! seats have been filled already :(',
-                                    event: particularEvent,
-                                    color: 3
-                                });
-
                             }
                         });
+                    } else {
+                        res.render('confirmation', {
+                            reply: 'Oops!!! seats have been filled already :(',
+                            event: particularEvent,
+                            color: 3
+                        });
+
                     }
                 });
             }
         });
     });
-
 });
