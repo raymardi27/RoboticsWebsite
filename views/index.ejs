@@ -31,7 +31,7 @@
 
 </head>
 
-<body data-spy="scroll" data-target=".site-nav-target" data-offset="200">
+<body data-spy="scroll" data-target=".site-nav-target" data-offset="200" style=" overflow-x: hidden ">
 
     <nav class="unslate_co--site-mobile-menu">
         <div class="close-wrap d-flex">
@@ -320,10 +320,25 @@
                                     </div>
                                 </div>
                             </form>
-                            <div id="form-message-warning" class="mt-4"></div>
-                            <div id="form-message-success">
-                                Your message was sent, thank you!
-                            </div>
+                            <% if(typeof(color) === 'undefined') { %>
+                                <% }else{ %>
+                                    <% if(color==3){ %>
+                                        <div id="form-message-warning" class="mt-4">
+                                            <% if(typeof(reply) === 'undefined') { %>
+                                                <% }else{ %>
+                                                    <%= reply %>
+                                                        <% } %>
+                                        </div>
+                                        <% } else {  %>
+                                            <div id="form-message-success">
+                                                <% if(typeof(reply) === 'undefined') { %>
+                                                    <% }else{ %>
+                                                        <%= reply %>
+                                                            <% } %>
+                                            </div>
+                                            <% } %>
+                                                <% } %>
+
 
                         </div>
 

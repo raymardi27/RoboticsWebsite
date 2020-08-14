@@ -5,6 +5,7 @@ const fs = require('fs');
 var urlencodedParser = (bodyParser.urlencoded({ extended: false }))
 const app = new express();
 const user = require('./models/users');
+const user = require('./models/feedback');
 var mongoose = require('mongoose');
 mongoose.connect("mongodb+srv://test:test@cluster0.zgwho.mongodb.net/users?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true });
 
@@ -55,6 +56,48 @@ app.get('/', function(req, res) {
     })
 
 });
+
+app.post('/', function(req, res) {
+    var u = feedback({ name: req.body['name'], email: req.body['email'], message: req.body['message'] }).save(function(err) {
+        if (err) {
+            res.render('/', {
+                reply: 'Oops!!! there was an error while sending :(',
+                color: 3
+            });
+            throw err;
+        } else {
+            console.log('ticket registered');
+            var nodemailer = require('nodemailer');
+
+            var transporter = nodemailer.createTransport({
+                service: 'gmail',
+                auth: {
+                    user: 'shettyyashdeep@gmail.com',
+                    pass: 'Yash@12345678910'
+                }
+            });
+            var t = 'Thanks,' + req.body['name'] + ', Your feedback is valuable to us. We sure will work on improvements';
+            var mailOptions = {
+                from: 'shettyyashdeep@gmail.com',
+                to: req.body['email'],
+                subject: 'Feedback received',
+                text: t
+            };
+
+            transporter.sendMail(mailOptions, function(error, info) {
+                if (error) {
+                    console.log(error);
+                } else {
+                    console.log('Email sent: ' + info.response);
+                }
+            });
+            res.render('confirmation', {
+                reply: 'Your feedback is valuable to us. We sure will work on improvements',
+                color: 1
+            });
+        }
+    });
+})
 
 app.get('/projectList', function(req, res) {
     var mem = [];
