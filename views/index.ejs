@@ -31,21 +31,21 @@
 
 </head>
 
-<body data-spy="scroll" data-target=".site-nav-target" data-offset="200" class="first_div">
-
-    <nav class="unslate_co--site-mobile-menu container second_div">
-        <div class="close-wrap d-flex">
-            <a href="#" class="d-flex ml-auto js-menu-toggle">
-                <span class="close-label">Close</span>
-                <div class="close-times">
-                    <span class="bar1"></span>
-                    <span class="bar2"></span>
-                </div>
-            </a>
-        </div>
-        <div class="site-mobile-inner"></div>
-    </nav>
-
+<body data-spy="scroll" data-target=".site-nav-target" data-offset="200">
+    <div class="container-fluid w-100">
+        <nav class="unslate_co--site-mobile-menu">
+            <div class="close-wrap d-flex">
+                <a href="#" class="d-flex ml-auto js-menu-toggle">
+                    <span class="close-label">Close</span>
+                    <div class="close-times">
+                        <span class="bar1"></span>
+                        <span class="bar2"></span>
+                    </div>
+                </a>
+            </div>
+            <div class="site-mobile-inner"></div>
+        </nav>
+    </div>
     <div class="unslate_co--site-wrap">
 
         <div class="unslate_co--site-inner">
@@ -57,7 +57,7 @@
             </div>
             <!-- END lines -->
 
-            <nav class="unslate_co--site-nav site-nav-target second_div">
+            <nav class="unslate_co--site-nav site-nav-target">
 
                 <div class="container">
 
@@ -198,7 +198,7 @@
                     <div class="row mt-5 justify-content-between">
                         <div class="col-lg-7 mb-5 mb-lg-0">
                             <figure class="dotted-bg gsap-reveal-img ">
-                                <video width="100%" height="100%" controls id='aboutVideo'>
+                                <video width="100%" height="100%" controls autoplay="true" id='aboutVideo'>
 
                                     <source src="videos/promo.mp4" type="video/mp4">
                                   
@@ -320,25 +320,10 @@
                                     </div>
                                 </div>
                             </form>
-                            <% if(typeof(color) === 'undefined') { %>
-                                <% }else{ %>
-                                    <% if(color==3){ %>
-                                        <div id="form-message-warning" class="mt-4">
-                                            <% if(typeof(reply) === 'undefined') { %>
-                                                <% }else{ %>
-                                                    <%= reply %>
-                                                        <% } %>
-                                        </div>
-                                        <% } else {  %>
-                                            <div id="form-message-success">
-                                                <% if(typeof(reply) === 'undefined') { %>
-                                                    <% }else{ %>
-                                                        <%= reply %>
-                                                            <% } %>
-                                            </div>
-                                            <% } %>
-                                                <% } %>
-
+                            <div id="form-message-warning" class="mt-4"></div>
+                            <div id="form-message-success">
+                                Your message was sent, thank you!
+                            </div>
 
                         </div>
 
@@ -403,11 +388,6 @@
         var vid = document.getElementById("myVideo");
         vid.autoplay = true;
         vid.load();
-        $(document).ready(function() {
-            $(".second_div").css({
-                'width': ($(".first_div").width() + 'px')
-            });
-        });
     </script>
 
 </body>
