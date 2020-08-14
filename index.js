@@ -5,7 +5,7 @@ const fs = require('fs');
 var urlencodedParser = (bodyParser.urlencoded({ extended: false }))
 const app = new express();
 const user = require('./models/users');
-const user = require('./models/feedback');
+const feedback = require('./models/feedback');
 var mongoose = require('mongoose');
 mongoose.connect("mongodb+srv://test:test@cluster0.zgwho.mongodb.net/users?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true });
 
