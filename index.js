@@ -165,7 +165,7 @@ app.post('/event/:id', urlencodedParser, function(req, res) {
         }
         var particularEvent = event[eventID];
 
-        user.count({ name: req.body['name'], email: req.body['email'], college: req.body['college'], ticket: req.body['ticket'], eventID: req.params.id }, function(err, count) {
+        user.count({ name: req.body['name'], email: req.body['email'], college: req.body['college'], eventID: req.params.id }, function(err, count) {
             if (count > 0) {
                 res.render('confirmation', {
                     reply: 'Hey !! your seats are secured , no need to worry we won\'t give it to anyone else , you are already registered :) ',
