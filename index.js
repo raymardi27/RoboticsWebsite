@@ -133,9 +133,19 @@ app.get('/event/:id', function(req, res) {
         var particularEvent = event[eventID];
         console.log(eventID)
         console.log(particularEvent)
-        console.log(count)
-        user.count({ eventID: req.params.id }, function(err, count) {
-            res.render('event', { event: particularEvent, count: count });
+
+        user.find({ eventID: req.params.id }, function(err, registered) {
+            var count = 0;
+            console.log(registered);
+            for (var i = 0; i < registered.length; i++) {
+                console.log("in");
+                count = count + registered[i]['ticket'];
+            }
+            console.log(count);
+            res.render('event', {
+                event: particularEvent,
+                count: count
+            });
         })
     });
 })
@@ -154,31 +164,32 @@ app.post('/event/:id', urlencodedParser, function(req, res) {
             console.log(eventsList);
         }
         var particularEvent = event[eventID];
-        user.find({ eventID: req.params.id }, function(err, registered) {
-            count = 0;
-            for (var i = 0; i < registered.length; i++) {
-                count = count + registered['ticket']
-            }
-            console.log(count)
-            if (count < particularEvent[15]) {
-                user.count({ name: req.body['name'], email: req.body['email'], college: req.body['college'], ticket: req.body['ticket'], eventID: req.params.id }, function(err, count) {
-                    if (count > 0) {
+
+        user.count({ name: req.body['name'], email: req.body['email'], college: req.body['college'], ticket: req.body['ticket'], eventID: req.params.id }, function(err, count) {
+            if (count > 0) {
+                res.render('confirmation', {
+                    reply: 'Hey !! your seats are secured , no need to worry we won\'t give it to anyone else , you are already registered :) ',
+                    event: particularEvent,
+                    color: 2
+                });
+            } else {
+                var u = user({ name: req.body['name'], email: req.body['email'], college: req.body['college'], ticket: req.body['ticket'], eventID: req.params.id, reason: req.body['reason'] }).save(function(err) {
+                    if (err) {
                         res.render('confirmation', {
-                            reply: 'Hey !! your seats are secured , no need to worry we won\'t give it to anyone else , you are already registered :) ',
+                            reply: 'Oops!!! there was an error while registering :(',
                             event: particularEvent,
-                            color: 2
+                            color: 3
                         });
+                        throw err;
                     } else {
-                        var u = user({ name: req.body['name'], email: req.body['email'], college: req.body['college'], ticket: req.body['ticket'], eventID: req.params.id, reason: req.body['reason'] }).save(function(err) {
-                            if (err) {
-                                res.render('confirmation', {
-                                    reply: 'Oops!!! there was an error while registering :(',
-                                    event: particularEvent,
-                                    color: 3
-                                });
-                                throw err;
-                            } else {
-                                console.log(1)
+                        user.find({ eventID: req.params.id }, function(err, registered) {
+                            var count = 0;
+                            console.log(registered);
+                            for (var i = 0; i < registered.length; i++) {
+                                count = count + registered[i]['ticket']
+                            }
+                            console.log(count)
+                            if (count < particularEvent[15]) {
                                 console.log('ticket registered');
                                 var nodemailer = require('nodemailer');
 
@@ -209,19 +220,19 @@ app.post('/event/:id', urlencodedParser, function(req, res) {
                                     event: particularEvent,
                                     color: 1
                                 });
-                            }
+                            } else {
+                                res.render('confirmation', {
+                                    reply: 'Oops!!! seats have been filled already :(',
+                                    event: particularEvent,
+                                    color: 3
+                                });
 
+                            }
                         });
                     }
                 });
-            } else {
-                res.render('confirmation', {
-                    reply: 'Oops!!! seats have been filled already :(',
-                    event: particularEvent,
-                    color: 3
-                });
             }
         });
-
     });
+
 });
