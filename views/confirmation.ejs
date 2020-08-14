@@ -111,11 +111,11 @@
 
 <body>
     <% if (color==1) { %>
-        <% var color = "background:#6fb32b" %>
+        <% var t = "background:#6fb32b" %>
             <% } else if(color==2) { %>
-                <% var color = "background:#FFCC00" %>
+                <% var t = "background:#FFCC00" %>
                     <% } else { %>
-                        <% var color = "background:#ca0b00" %>
+                        <% var t = "background:#ca0b00" %>
                             <% } %>
 
                                 <!-- Modal HTML -->
@@ -123,10 +123,19 @@
                                     <div class="modal-dialog modal-confirm">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <div class="icon-box" style="<%= color %>">
+                                                <div class="icon-box" style="<%= t %>">
                                                     <i class=" material-icons ">&#xE876;</i>
                                                 </div>
-                                                <h4 class="modal-title ">Awesome!</h4>
+                                                <% if (color==1) { %>
+                                                    <h4 class="modal-title ">Awesome!</h4>
+                                                    <% } %>
+                                                        <% if (color==2) { %>
+                                                            <h4 class="modal-title ">No worries :)</h4>
+                                                            <% } %>
+                                                                <% if (color==3) { %>
+                                                                    <h4 class="modal-title ">Oops !!</h4>
+                                                                    <% } %>
+
                                             </div>
                                             <div class="modal-body ">
                                                 <p class="text-center ">
