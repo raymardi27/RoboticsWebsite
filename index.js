@@ -133,6 +133,7 @@ app.get('/event/:id', function(req, res) {
         var particularEvent = event[eventID];
         console.log(eventID)
         console.log(particularEvent)
+        console.log(count)
         user.count({ eventID: req.params.id }, function(err, count) {
             res.render('event', { event: particularEvent, count: count });
         })
